@@ -1,5 +1,5 @@
 import React from 'react';
-import { Loader } from './Loader';
+import { Loader } from './Index';
 
 export default {
     title: 'Example/Loader',
@@ -9,3 +9,9 @@ export default {
 const Template = (args) => <Loader {...args} />;
 
 export const Primary = Template.bind({});
+Primary.args = {
+    color:"#d30404",
+    width: "40%",
+}
+
+
