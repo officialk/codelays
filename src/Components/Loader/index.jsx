@@ -13,7 +13,7 @@ export const Loader = ({color, width}) => {
   `
   return (
     <>
-    <Container data-test-id="loadProgressBar">
+    <Container data-testid="loadProgressBar">
       <div className="progressBar">
         <span className="loader"></span>
       </div>
