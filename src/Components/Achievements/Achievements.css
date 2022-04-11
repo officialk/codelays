@@ -5,7 +5,20 @@
     height: 125px;
     padding-top: 20px;
     padding-left: 20px;
+    animation-name: moveRightToLeft;
+    animation-duration: 1s;
+    animation-iteration-count: 3;
 }
+
+@keyframes moveRightToLeft {
+    from {
+        margin-right: 0px;
+    }
+    to {
+        margin-right: 352px;
+    }
+}
+
 .achievement-text{
     display: flex;
     flex-direction: column;

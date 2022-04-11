@@ -1,1 +1,2 @@
-export {default as Achievements } from './Achievements/index';
+import Achievements from './Loader';
+export default {Achievements};
