@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import { React } from 'react';
 import './Achievements.css';
 
 export const Achievements = ({achievement, achievementTitle, image, description}) => {
