@@ -1,0 +1,12 @@
+.newsBar{
+    background-color: #d30404;
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+.news{
+    color: white;
+    font-size: 20px;
+}
