@@ -8,13 +8,8 @@ describe("Achievement Component", () => {
         const { getByTestId } = render(<Achievements />);
         const achievementComponent = getByTestId('testAchievements');
         expect(achievementComponent).toBeInTheDocument();
-    });
-    it('Checks if the Achievements renders when value is true', () => {
-        const { getByTestId } = render(<Achievements achievement= {true} />);
-        const achievementComponent = getByTestId('testAchievements');
-        expect(achievementComponent).toBeInTheDocument();
         setTimeout(function (){
             expect(achievementComponent).not.toBeInTheDocument();
-        }, 10000)
+        }, 10000);
     });
 })
