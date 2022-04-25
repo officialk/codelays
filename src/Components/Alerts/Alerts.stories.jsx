@@ -1,14 +1,22 @@
 import React from 'react';
 import { Alerts } from './index.jsx';
+import { Loader } from '../Loader/index.jsx'
+// import { withReactContext } from 'storybook-react-context';
 
 export default {
-    title: 'Alerts',
+    title: 'Alerts & Loader',
     component: Alerts,
+    subComponents: { Loader },
 };
 
-const Template = (args) => <Alerts {...args}/>;
+const Template = (args) =><> 
+<Alerts {...args}/>
+<Loader {...args}/>
+</>;
 
 export const Default = Template.bind({});
 Default.args = {
     open: true,
+    update: false,
+    percent: 40,
 }
