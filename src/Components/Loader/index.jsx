@@ -8,7 +8,6 @@ export const Loader = ({percent}) => {
       <div data-testid="loadProgressBar" className="progressBar">
         <span data-testid="loader" style={{backgroundColor: `${color}`, width: `${percent}%`}} className="loader"></span>
       </div>
-      <button data-testid="btn" onClick={()=>{setColor("#232dbb")}}>changeColor</button>
     </>
   );
 };
