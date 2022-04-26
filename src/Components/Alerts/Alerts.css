@@ -1,6 +1,6 @@
 .Alerts{
     display: flex;
-    background-color: #d30404;
+    background-color: var(--bg-color);
     width: 320px;
     border-radius: 0px 0px 26px 26px;
 }
