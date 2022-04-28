@@ -1,3 +1,19 @@
+import '../public/Styles/globals.css'
+import { ThemeProvider } from '@mui/material'
+import { theme } from '../src/Theme/Theme';
+import { setTheme } from '../src/controller/globalEvents';
+
+export const decorators = [
+  (Story, context) => { 
+    const { color } = context.args;
+    setTheme(color);
+    return (
+    <ThemeProvider theme={theme}>
+      <Story />
+    </ThemeProvider>
+  )},
+];
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
