@@ -1,7 +1,6 @@
 import React from 'react';
 import { Alerts } from './index.jsx';
 import { Loader } from '../Loader/index.jsx'
-// import { withReactContext } from 'storybook-react-context';
 
 export default {
     title: 'Alerts & Loader',

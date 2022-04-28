@@ -1,6 +1,6 @@
-import '../src/Styles/globals.css'
+import '../public/Styles/globals.css'
 import { ThemeProvider } from '@mui/material'
-import { theme } from '../src/Components/Theme/Theme';
+import { theme } from '../src/Theme/Theme';
 
 export const decorators = [
   (Story) => (
