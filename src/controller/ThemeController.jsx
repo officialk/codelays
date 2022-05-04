@@ -8,11 +8,10 @@ const pixelValueExtractor = ( imgsrc ) => {
     imgEl.crossOrigin = '';
     imgEl.src = imgsrc;
     const rgb = extractThemeFromImage(imgEl);
-    console.log("rgb->"+rgb)
     return rgb;
 }
 
-function extractThemeFromImage(imgEl){
+async function extractThemeFromImage(imgEl){
     var blockSize = 5,
         defaultRGB = [255,0,0],
         canvas = document.createElement('canvas'),
@@ -26,7 +25,7 @@ function extractThemeFromImage(imgEl){
     if (!context) {
         return arrayToCSSColor( rgb );
     }
-    // let loaded = await imgEl.onload;
+    let loaded = await imgEl.onload;
     
     height =  imgEl.naturalHeight || imgEl.height || imgEl.offsetHeight;
     width =  imgEl.naturalWidth || imgEl.width || imgEl.offsetWidth;
