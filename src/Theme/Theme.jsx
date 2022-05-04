@@ -2,7 +2,7 @@ import { createTheme } from "@mui/material";
 
 const theme = createTheme({
     pallete: {
-      primary: 'var(--theme-color)',
+      primary: 'var(--primary)',
     },
   });
 

@@ -1,7 +1,7 @@
 import '../public/Styles/globals.css'
 import { ThemeProvider } from '@mui/material'
 import { theme } from '../src/Theme/Theme';
-import { setTheme } from '../src/controller/globalEvents';
+import { setTheme } from '../src/controller/ThemeController';
 
 export const decorators = [
   (Story, context) => { 

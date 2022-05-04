@@ -1,3 +1,4 @@
 :root{
-    --theme-color: red;
+    --primary: red;
+    --secondary: white;
 }
