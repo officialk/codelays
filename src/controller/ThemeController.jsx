@@ -1,4 +1,4 @@
-export const setTheme = (color) =>{
+const setTheme = (color) =>{
     document.documentElement.style.setProperty('--primary', color);
 }
 
@@ -62,4 +62,4 @@ function arrayToCSSColor( rgb ) {
     return color;
 }
 
-export { pixelValueExtractor, extractThemeFromImage, arrayToCSSColor };
+export { setTheme, pixelValueExtractor, extractThemeFromImage, arrayToCSSColor };
