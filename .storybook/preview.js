@@ -1,6 +1,4 @@
 import '../public/Styles/globals.css'
-import { ThemeProvider } from '@mui/material'
-import { theme } from '../src/Theme/Theme';
 import { setTheme } from '../src/controller/ThemeController';
 
 export const decorators = [
@@ -8,9 +6,7 @@ export const decorators = [
     const { color } = context.args;
     setTheme(color);
     return (
-    <ThemeProvider theme={theme}>
       <Story />
-    </ThemeProvider>
   )},
 ];
 
