@@ -1,8 +1,6 @@
 import '../public/Styles/globals.css'
-import { ThemeProvider } from '@mui/material'
-import { theme } from '../src/Theme/Theme';
-import { setTheme } from '../src/controller/globalEvents';
-import { pixelValueExtractor } from '../src/utils/general_functions';
+import { setTheme } from '../src/controller/ThemeController';
+import { pixelValueExtractor } from '../src/controller/ThemeController';
 
 export const decorators = [
   (Story) => { 
@@ -10,9 +8,7 @@ export const decorators = [
     let rgb = pixelValueExtractor(imgsrc);
     setTheme(rgb);
     return (
-      <ThemeProvider theme={theme}>
         <Story />
-      </ThemeProvider>
   )},
 ];
 

@@ -1,9 +1,14 @@
+export const setTheme = (color) =>{
+    document.documentElement.style.setProperty('--primary', color);
+}
+
 // pixelValueExtractor takes the link of the image and returns its rgb color
 const pixelValueExtractor = ( imgsrc ) => {
     let imgEl = document.createElement("img");
-    imgEl.src = imgsrc;
     imgEl.crossOrigin = '';
+    imgEl.src = imgsrc;
     const rgb = extractThemeFromImage(imgEl);
+    console.log("rgb->"+rgb)
     return rgb;
 }
 
@@ -19,18 +24,20 @@ function extractThemeFromImage(imgEl){
         count = 0;
 
     if (!context) {
-        return 'rgb('+rgb[0]+','+rgb[1]+','+rgb[1]+')';
+        return arrayToCSSColor( rgb );
     }
+    // let loaded = await imgEl.onload;
     
-    height = canvas.height = imgEl.naturalHeight || imgEl.height || imgEl.offsetHeight;
-    width = canvas.width = imgEl.naturalWidth || imgEl.width || imgEl.offsetWidth;
+    height =  imgEl.naturalHeight || imgEl.height || imgEl.offsetHeight;
+    width =  imgEl.naturalWidth || imgEl.width || imgEl.offsetWidth;
         
     context.drawImage(imgEl, 0, 0);
     
     try {        
         data = context.getImageData(0, 0, width, height);
     } catch(e) {
-        return defaultRGB;
+        console.log(e);
+        return arrayToCSSColor( defaultRGB );
     }
         
         length = data.data.length;
@@ -41,16 +48,16 @@ function extractThemeFromImage(imgEl){
         rgb[1] += data.data[i+1];
         rgb[2] += data.data[i+2];
     }
-
-    const color = arrayToCSSColor( rgb, count);
-    return color;
-}
-
-function arrayToCSSColor( rgb, count ) {
     rgb[0] = ~~(rgb[0]/count);
     rgb[1] = ~~(rgb[1]/count);
     rgb[2] = ~~(rgb[2]/count);
-    
+
+    const color = arrayToCSSColor( rgb );
+    console.log("color->" + color)
+    return color;
+}
+
+function arrayToCSSColor( rgb ) {
     const color = 'rgb('+rgb[0]+','+rgb[1]+','+rgb[1]+')';
     return color;
 }
