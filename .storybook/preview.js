@@ -3,10 +3,11 @@ import { setTheme } from '../src/controller/ThemeController';
 import { pixelValueExtractor } from '../src/controller/ThemeController';
 
 export const decorators = [
-  (Story) => { 
-    let imgsrc = "https://static-cdn.jtvnw.net/jtv_user_pictures/94c799bc-eaf6-4d1c-9ba6-6c85e45930eb-profile_image-70x70.png";
-    let rgb = pixelValueExtractor(imgsrc);
-    setTheme(rgb);
+  (Story, context) => { 
+    let imgsrc = context.args.imageLink;
+    pixelValueExtractor(imgsrc).then((rgbValue)=>{
+      setTheme(rgbValue);
+    });
     return (
         <Story />
   )},

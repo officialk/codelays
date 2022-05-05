@@ -11,6 +11,6 @@ const Template = (args) => <Alerts {...args}/>;
 export const Default = Template.bind({});
 Default.args = {
     open: true,
+    imageLink: "https://static-cdn.jtvnw.net/jtv_user_pictures/94c799bc-eaf6-4d1c-9ba6-6c85e45930eb-profile_image-70x70.png",
     color: 'red',
-    percent: 40,
 }
