@@ -3,46 +3,50 @@ const setTheme = (color) =>{
 }
 
 // pixelValueExtractor takes the link of the image and returns its rgb color
-const pixelValueExtractor = ( imgsrc ) => {
-    return new Promise((resolve)=>{
-        
-        let imgEl = document.createElement("img");
-        imgEl.crossOrigin = '';
-        imgEl.src = imgsrc;
-        var defaultRGB = [255,0,0],
-        canvas = document.createElement('canvas'),
-        context = canvas.getContext && canvas.getContext('2d'),
-        data, width, height,
-        rgb = [0, 0, 0];     
-    
-        if (!context) {
-            return arrayToCSSColor( rgb );
-        }
-    
-        imgEl.onload = async ()=>{
-            height =  imgEl.naturalHeight || imgEl.height || imgEl.offsetHeight;
-            width =  imgEl.naturalWidth || imgEl.width || imgEl.offsetWidth;
-            
-            context.drawImage(imgEl, 0, 0);
-            try {        
-                data = context.getImageData(0, 0, width, height);
-            } catch(e) {
-                console.log(e);
-                return arrayToCSSColor( defaultRGB );
-            }
-            let fetchedRGB = extractThemeFromImage( rgb, data );
-            const color = arrayToCSSColor( fetchedRGB );
-            resolve(color);
-        }            
+// @params ( web address of the image )
+// @return ( imageData )
+const pixelValueExtractor = async ( imgsrc ) => {        
+    let imgEl = document.createElement("img");
+    imgEl.crossOrigin = '';
+    imgEl.src = imgsrc;
+    var canvas = document.createElement('canvas'),
+    context = canvas.getContext && canvas.getContext('2d'),
+    data, width, height;   
+    if (!context) {
+        return data;
+    }
+    let promise = new Promise((resolve)=>{
+        imgEl.addEventListener('load', () => {
+            resolve(imgEl);
+        });
     })
+    await promise;
+    height =  imgEl.naturalHeight || imgEl.height || imgEl.offsetHeight;
+    width =  imgEl.naturalWidth || imgEl.width || imgEl.offsetWidth;
+    context.drawImage(imgEl, 0, 0);
+    try {       
+        data = context.getImageData(0, 0, width, height);
+    } catch(e) {
+        return data;
+    }
+    return data;
 }
 
-const extractThemeFromImage = (rgb, data) => {   
-    var blockSize = 5,         
+// @params ( imageData )
+// @return ( rgbValue ) 
+const extractThemeFromImage = ( data ) => {
+    var defaultRGB = [255,0,0];
+
+    if(data == undefined){
+    return defaultRGB;
+    }    
+
+    var rgb = [0,0,0],
+    blockSize = 5,         
     i = -4,
     count = 0,
     length = data.data.length;
-                
+ 
     while ( (i += blockSize * 4) < length ) {
         ++count;
         rgb[0] += data.data[i];
@@ -57,8 +61,8 @@ const extractThemeFromImage = (rgb, data) => {
 }
 
 const arrayToCSSColor = ( rgb ) => {
-    const color = 'rgb('+rgb[0]+','+rgb[1]+','+rgb[2]+')';
-    return color;
+    return 'rgb('+rgb[0]+','+rgb[1]+','+rgb[2]+')';
 }
+
 
 export { setTheme, pixelValueExtractor, extractThemeFromImage, arrayToCSSColor };
