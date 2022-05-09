@@ -6,8 +6,8 @@ export const decorators = [
   (Story, context) => { 
     let imgsrc = context.args.imageLink;
     pixelValueExtractor(imgsrc)
-    .then((length)=>{
-      let rgb = extractThemeFromImage(length);
+    .then((imgData)=>{
+      let rgb = extractThemeFromImage(imgData);
       let color = arrayToCSSColor(rgb);
       setTheme(color);
     });

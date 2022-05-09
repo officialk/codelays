@@ -2,9 +2,9 @@ const setTheme = (color) =>{
     document.documentElement.style.setProperty('--primary', color);
 }
 
-// pixelValueExtractor takes the link of the image and returns its rgb color
-// @params ( web address of the image )
-// @return ( imageData )
+// pixelValueExtractor takes the web adress of the image as parameter and returns its image data
+// @params {string}
+// @return {object}
 const pixelValueExtractor = async ( imgsrc ) => {        
     let imgEl = document.createElement("img");
     imgEl.crossOrigin = '';
@@ -32,11 +32,12 @@ const pixelValueExtractor = async ( imgsrc ) => {
     return data;
 }
 
-// @params ( imageData )
-// @return ( rgbValue ) 
+// extractThemeFromImage takes imageData as Parameter and returns the rgb value of the image and if the data is undefined(error in image data or fetching image) then the default color(red) will be returned.
+// @params {object}
+// @return {array} 
 const extractThemeFromImage = ( data ) => {
     var defaultRGB = [255,0,0];
-
+    
     if(data == undefined){
     return defaultRGB;
     }    
@@ -60,9 +61,10 @@ const extractThemeFromImage = ( data ) => {
     return rgb;
 }
 
-const arrayToCSSColor = ( rgb ) => {
-    return 'rgb('+rgb[0]+','+rgb[1]+','+rgb[2]+')';
-}
+// arrayToCSSColor takes rgb array of image as parameter and returns the css redable rgb format
+// @params {array}
+// @return {string}
+const arrayToCSSColor = ( rgb ) => 'rgb('+rgb[0]+','+rgb[1]+','+rgb[2]+')';
 
 
 export { setTheme, pixelValueExtractor, extractThemeFromImage, arrayToCSSColor };
