@@ -7,7 +7,6 @@ const setTheme = (color) =>{
 }
 
 /**
- * pixelValueExtractor takes the web adress of the image as parameter and returns its image data
  * @param {string} imgsrc - web adress of the image
  * @return {object} image pixel data 
  */
@@ -71,7 +70,6 @@ const extractThemeFromImage = ( data ) => {
 }
 
 /**
- * arrayToCSSColor takes rgb array of image as parameter and returns the css redable rgb format
  * @param {number[]} rgb - [r,g,b]
  * @return {string} css readable rgb value
  */
