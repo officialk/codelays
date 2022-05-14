@@ -9,7 +9,7 @@ export const Reminder = () => {
   const [icon, setIcon] = useState("");
 
   const classes = useStyles();
-  
+  // comment
   const initialize = async () => {
     await wait(reminder.displayInterval);
     setShowReminder(true);
