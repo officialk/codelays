@@ -1,2 +1,4 @@
 import CreditsList from "./CreditsList";
-export default {CreditsList};
+import { Reminder } from "./Reminder";
+
+export default {CreditsList, Reminder};
