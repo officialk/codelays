@@ -1,4 +1,5 @@
 /**
+ * setTheme function takes the color as parameter and apply it to the theme color
  * @param {string} color - color to be applied on theme
  * @return {null} 
  */
@@ -7,6 +8,7 @@ const setTheme = (color) =>{
 }
 
 /**
+ * pixelValueExtractor function takes the web adress of the image as parameter and returns the pixel data of the image
  * @param {string} imgsrc - web adress of the image
  * @return {object} image pixel data 
  */
@@ -31,14 +33,13 @@ const pixelValueExtractor = async ( imgsrc ) => {
     context.drawImage(imgEl, 0, 0);
     try {       
         data = context.getImageData(0, 0, width, height);
-    } catch(e) {
+    } finally {
         return data;
     }
-    return data;
 }
 
 /**
-*  extractThemeFromImage takes imageData as Parameter and returns the rgb value of the image and if the data is undefined(error in image data or fetching image) then the default color(red) will be returned.
+ * extractThemeFromImage takes imageData as Parameter and returns the rgb value of the image and if the data is undefined(error in image data or fetching image) then the default color(red) will be returned.
  * @param {Object} data - image pixel data
  * @return {number[]} [r,g,b]
  */
@@ -70,6 +71,7 @@ const extractThemeFromImage = ( data ) => {
 }
 
 /**
+ * arrayToCSSColor takes the rgb array as parameter and returns the CSS readable rgb format
  * @param {number[]} rgb - [r,g,b]
  * @return {string} css readable rgb value
  */
