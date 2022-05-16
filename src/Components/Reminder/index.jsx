@@ -1,17 +1,18 @@
 import { React, useEffect, useState } from "react";
 import { useStyles } from "./style";
 import {reminder} from '../../config/data.json'
+import { wait } from "../../utils/general_functions";
 
 export const Reminder = () => {
   const [showReminder, setShowReminder] = useState(false);
-  const [visibility, setVisibility] = useState("false");
+  const [visibility, setVisibility] = useState(false);
   const [text, setText] = useState("");
   const [icon, setIcon] = useState("");
 
   const classes = useStyles();
   
   const initialize = async () => {
-    await wait(reminder.displayInterval);
+    await wait(reminder.displayInterval * 60);
     setShowReminder(true);
     for await(const element of reminder.list){
       setVisibility(true);
@@ -24,10 +25,6 @@ export const Reminder = () => {
     setShowReminder(false);
     initialize();
   };
-  const wait = async (time) =>
-    new Promise((resolve) => {
-      setTimeout(resolve, time*1000);
-    });
 
   useEffect(()=>{
     initialize();
