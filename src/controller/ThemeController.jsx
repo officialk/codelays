@@ -8,7 +8,7 @@ const setTheme = (color) =>{
 }
 
 /**
- * pixelValueExtractor function takes the web adress of the image as parameter and returns the pixel data of the image
+ * pixelValueExtractor function extract the pixelData of the image and returns it.
  * @param {string} imgsrc - web adress of the image
  * @return {object} image pixel data 
  */
@@ -28,14 +28,13 @@ const pixelValueExtractor = async ( imgsrc ) => {
         });
     })
     await promise;
+
     height =  imgEl.naturalHeight || imgEl.height || imgEl.offsetHeight;
     width =  imgEl.naturalWidth || imgEl.width || imgEl.offsetWidth;
     context.drawImage(imgEl, 0, 0);
-    try {       
-        data = context.getImageData(0, 0, width, height);
-    } finally {
-        return data;
-    }
+
+    data = context.getImageData(0, 0, width, height);
+    return data;
 }
 
 /**
