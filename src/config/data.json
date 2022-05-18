@@ -21,7 +21,8 @@
         "list": [
             {
                 "title": "Subscribe to Howling_hood",
-                "icon": "https://cdn-icons-png.flaticon.com/512/1384/1384060.png"
+                "icon": "https://cdn-icons-png.flaticon.com/512/1384/1384060.png",
+                "chat": "Subscribe to Howling_hood"
             },
             {
                 "title": "Follow on Insta",
@@ -31,7 +32,7 @@
                 "title": "Follow on Twitter",
                 "icon": "https://cdn-icons-png.flaticon.com/512/733/733579.png"
             }
-        ],
-        "chat": ""
+        ]
+        
     }
 }

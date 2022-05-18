@@ -9,5 +9,3 @@ export default {
 const Template = (args) => <Reminder {...args}/>;
 
 export const Default = Template.bind({});
-Default.args = {
-}

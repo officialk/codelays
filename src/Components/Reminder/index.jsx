@@ -30,10 +30,8 @@ export const Reminder = () => {
     initialize();
   },[]);
 
-  return (
-    <>
-      {showReminder && 
-      <div className={`${classes.root}`}>
+  return showReminder && 
+      <div data-testid="loadReminder" className={`${classes.root}`}>
         <div className={`${classes.rm} ${visibility ? classes.animatedItem : ""}`}>
           <img className={`${classes.icon}`} src={icon} alt="" />
           <div
@@ -43,7 +41,4 @@ export const Reminder = () => {
           </div>
         </div>
       </div>
-      } 
-    </>
-  );
 };
