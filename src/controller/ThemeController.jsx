@@ -1,6 +1,3 @@
-// setSecondary takes the rgb value of background as parameter and returns the text color
-// @params {array}
-// @return {string}
 /**
  * setSecondary sets the secondary color on the basis of r,g,b values of primary color passed
  * @param {number} r - value of r of primary color
