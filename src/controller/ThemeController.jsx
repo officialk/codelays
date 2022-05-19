@@ -49,13 +49,14 @@ const extractThemeFromImage = ( data ) => {
     if(data == undefined){
     return defaultRGB;
     }    
-
+    
     var rgb = [0,0,0],
     blockSize = 5,         
     i = -4,
     count = 0,
     length = data.data.length;
- 
+    // print
+    console.log(length);
     while ( (i += blockSize * 4) < length ) {
         ++count;
         rgb[0] += data.data[i];
