@@ -17,7 +17,7 @@ describe("ThemeController", () => {
         let color = setSecondary(r,g,b);
         expect(color).toBe('#000000');
     });
-    it('Checks if setSeconadry returns black color when dark pink(r,g,b) color is passed', () => {
+    it('Checks if setSeconadry returns white color when dark pink(r,g,b) color is passed', () => {
         let r=224,g=17,b=95;
         let color = setSecondary(r,g,b);
         expect(color).toBe('#ffffff');
