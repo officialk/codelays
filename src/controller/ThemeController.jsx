@@ -12,7 +12,7 @@ const setTheme = (color) =>{
  * @param {string} imgsrc - web adress of the image
  * @return {object} image pixel data 
  */
-const pixelValueExtractor = async ( imgsrc ) => {        
+const pixelValueExtractor = async ( imgsrc ) => {       
     let imgEl = document.createElement("img");
     imgEl.crossOrigin = '';
     imgEl.src = imgsrc;
@@ -28,6 +28,7 @@ const pixelValueExtractor = async ( imgsrc ) => {
         });
     })
     await promise;
+    console.log("ubbjkb"); 
 
     height =  imgEl.naturalHeight || imgEl.height || imgEl.offsetHeight;
     width =  imgEl.naturalWidth || imgEl.width || imgEl.offsetWidth;
