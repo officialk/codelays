@@ -12,7 +12,7 @@ export const Reminder = () => {
   const classes = useStyles();
   
   const initialize = async () => {
-    await wait(reminder.displayInterval * 60);
+    await wait(reminder.displayInterval);
     setShowReminder(true);
     for await(const element of reminder.list){
       setVisibility(true);
