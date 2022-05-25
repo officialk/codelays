@@ -1,3 +1,7 @@
+const setTheme = (color) =>{
+    document.documentElement.style.setProperty('--primary', color);
+}
+
 /**
  * setSecondary sets the secondary color on the basis of r,g,b values of primary color passed
  * @param {number} r - value of r of primary color
@@ -7,4 +11,7 @@
  */
 const setSecondary = (r, g, b) => (r * 299 + g * 587 + b * 114) / 1000 > 125 ? '#000000' : '#ffffff';
 
-export {setSecondary};
+export { setSecondary, setTheme };
+
+
+
